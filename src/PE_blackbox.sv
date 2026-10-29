@@ -6,6 +6,7 @@ module PE(
 `endif
     input  logic clk,
     input  logic rst_n,
+    input  logic load_w,
 
     input  logic signed [7:0] a_in,
     input  logic signed [31:0]  partial_sum_in,

@@ -5,6 +5,7 @@ module PE(
 `endif
     input  logic clk,
     input  logic rst_n,
+    input  logic load_w,
 
     input  logic signed [7:0] a_in,
     input  logic signed [31:0]  partial_sum_in,
@@ -18,7 +19,7 @@ module PE(
 
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            weight          <= '0;  
+            weight          <= '0;
             a_out           <= '0;
             partial_sum_out <= '0;
         end

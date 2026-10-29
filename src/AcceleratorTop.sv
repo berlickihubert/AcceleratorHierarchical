@@ -15,11 +15,15 @@ module AcceleratorTop #(
 
     input logic signed [ROWS*DATA_WIDTH-1 : 0] a_in_flat,
 
-    output logic signed [COLS*DATA_WIDTH-1 : 0] result_flat,
-)
+    output logic signed [COLS*ACC_WIDTH-1 : 0] result_flat
+);
 
-
-SystolicTableHierarchical systolic_array (
+    SystolicTableHierarchical #(
+        .ROWS(ROWS),
+        .COLS(COLS),
+        .DATA_WIDTH(DATA_WIDTH),
+        .ACC_WIDTH(ACC_WIDTH)
+    ) systolic_array (
 `ifdef USE_POWER_PINS
         .VPWR(VPWR),
         .VGND(VGND),
